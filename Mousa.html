@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The West CFW - Discord Server</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8B5DFF 0%, #6A1B9A 50%, #4A148C 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(75, 20, 140, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #E1BEE7, #BA68C8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2) drop-shadow(0 0 10px rgba(186, 104, 200, 0.5)); }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item a:hover {
+            background: linear-gradient(45deg, #BA68C8, #8B5DFF);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(186, 104, 200, 0.3);
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, #BA68C8, #8B5DFF);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(139, 93, 255, 0.4);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #E1BEE7, #BA68C8, #8B5DFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3) drop-shadow(0 0 20px rgba(186, 104, 200, 0.6)); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #BA68C8, #8B5DFF);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #8B5DFF, #6A1B9A);
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(186, 104, 200, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(186, 104, 200, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(186, 104, 200, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 15px;
+            background: rgba(186, 104, 200, 0.1);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(186, 104, 200, 0.3);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Status Indicator */
+        .server-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #BA68C8;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Founders Grid */
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .founder-card {
+            background: linear-gradient(135deg, rgba(186, 104, 200, 0.1), rgba(139, 93, 255, 0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(186, 104, 200, 0.3);
+        }
+
+        .founder-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .founder-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #BA68C8, #8B5DFF);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .rules-btn {
+            background: linear-gradient(45deg, #8B5DFF, #6A1B9A);
+            color: #fff;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2rem auto;
+        }
+
+        .rules-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(139, 93, 255, 0.4);
+        }
+
+        /* Application System */
+        .application-card {
+            background: linear-gradient(135deg, rgba(186, 104, 200, 0.15), rgba(139, 93, 255, 0.15));
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            border: 2px solid rgba(186, 104, 200, 0.3);
+            text-align: center;
+        }
+
+        .application-icon {
+            font-size: 4rem;
+            color: #BA68C8;
+            margin-bottom: 1rem;
+        }
+
+        .application-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #E1BEE7, #BA68C8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .apply-btn {
+            background: linear-gradient(45deg, #BA68C8, #8B5DFF);
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(186, 104, 200, 0.4);
+        }
+
+        /* Survey Modal */
+        .survey-modal {
+            background: linear-gradient(135deg, rgba(139, 93, 255, 0.95), rgba(106, 27, 154, 0.95));
+            padding: 3rem;
+            border-radius: 25px;
+            max-width: 700px;
+            width: 95%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .question-group {
+            margin-bottom: 2rem;
+            text-align: right;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #E1BEE7;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: right;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .radio-option:hover {
+            background: rgba(186, 104, 200, 0.1);
+        }
+
+        .radio-option input[type="radio"] {
+            margin: 0;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, rgba(139, 93, 255, 0.9), rgba(106, 27, 154, 0.9));
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(186, 104, 200, 0.3);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Discord Login */
+        .discord-login-btn {
+            background: #5865F2;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .discord-login-btn:hover {
+            background: #4752C4;
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <i class="fas fa-gamepad floating-icon" style="top: 10%; left: 10%; animation-delay: 0s;"></i>
+        <i class="fab fa-discord floating-icon" style="top: 20%; right: 15%; animation-delay: 1s;"></i>
+        <i class="fas fa-crown floating-icon" style="bottom: 30%; left: 20%; animation-delay: 2s;"></i>
+        <i class="fas fa-trophy floating-icon" style="bottom: 20%; right: 10%; animation-delay: 3s;"></i>
+        <i class="fas fa-star floating-icon" style="top: 50%; left: 80%; animation-delay: 4s;"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">The West CFW</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home">الرئيسية</a></li>
+                <li class="nav-item"><a href="#application">التقديم</a></li>
+                <li class="nav-item"><a href="#founders">المؤسسين</a></li>
+            </ul>
+            <a href="#" class="login-btn" id="loginButton">تسجيل الدخول</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="section hero">
+            <div class="container">
+                <h1>مرحباً بك في The West CFW</h1>
+                <p>انضم إلى أفضل مجتمع للألعاب على Discord واستمتع بتجربة فريدة مع اللاعبين المحترفين</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" id="joinDiscordBtn">
+                        <i class="fab fa-discord"></i> انضم للسيرفر
+                    </a>
+                    <a href="#application" class="btn btn-secondary">
+                        <i class="fas fa-file-alt"></i> قدم طلبك
+                    </a>
+                    <a href="https://example.com/rules" class="rules-btn" target="_blank">
+                        <i class="fas fa-scroll"></i> اطلع على القوانين
+                    </a>
+                </div>
+                
+                <div class="server-status">
+                    <div class="status-indicator"></div>
+                    <span>السيرفر متصل ونشط</span>
+                    <span id="memberCount">1,234 عضو</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Section -->
+        <section id="application" class="section">
+            <div class="container">
+                <h2>التقديم للانضمام</h2>
+                <p>قدم طلبك للانضمام إلى مجتمعنا المتميز</p>
+                
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="application-title">طلب الانضمام</h3>
+                    <p>املأ الاستبيان للتقديم والانضمام إلى The West CFW</p>
+                    <button class="apply-btn" onclick="startApplication()">
+                        <i class="fas fa-clipboard-list"></i>
+                        ابدأ التقديم
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founders Section -->
+        <section id="founders" class="section">
+            <div class="container">
+                <h2>مؤسسو السيرفر</h2>
+                <p>تعرف على الفريق الذي جعل هذا المجتمع ممكناً</p>
+                
+                <div class="founders-grid">
+                    <div class="founder-card">
+                        <div class="founder-avatar">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>عزيف - محمد</h3>
+                        <p>المؤسس الرئيسي</p>
+                        <p>احد اهم شخصيات السيرفر ومسؤول The West</p>
+                        <div style="margin-top: 1rem;">
+                            <i class="fab fa-discord"></i> Ahmed#1234
+                        </div>
+                    </div>
+                    
+                    <div class="founder-card">
+                        <div class="founder-avatar">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>موسى - حسام</h3>
+                        <p>مسؤولين البرمجة</p>
+                        <p>مديرين البرمجة العامة</p>
+                        <div style="margin-top: 1rem;">
+                            <i class="fab fa-discord"></i> Sara#5678
+                        </div>
+                    </div>
+                    
+                    <div class="founder-card">
+                        <div class="founder-avatar">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Team 1</h3>
+                        <p>احمد - حسام</p>
+                        <p>مسؤولين عن السيرفر بشكل عام</p>
+                        <div style="margin-top: 1rem;">
+                            <i class="fab fa-discord"></i> Mohamed#9012
+                        </div>
+                    </div>
+                    
+                    <div class="founder-card">
+                        <div class="founder-avatar">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Team 2</h3>
+                        <p>زكريا - امجد - سامي - لورد</p>
+                        <p>مختصة في تنظيم الادارة والرقابة</p>
+                        <div style="margin-top: 1rem;">
+                            <i class="fab fa-discord"></i> Fatima#3456
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>تسجيل الدخول</h2>
+            <p style="margin-bottom: 2rem; text-align: center;">سجل دخولك باستخدام Discord أو بياناتك</p>
+            
+            <button class="discord-login-btn" onclick="loginWithDiscord()">
+                <i class="fab fa-discord"></i>
+                تسجيل الدخول بـ Discord
+            </button>
+            
+            <div style="text-align: center; margin: 1rem 0; color: #ccc;">أو</div>
+            
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>اسم المستخدم أو Discord ID:</label>
+                    <input type="text" id="username" required placeholder="أدخل اسم المستخدم أو Discord ID">
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور:</label>
+                    <input type="password" id="password" required placeholder="أدخل كلمة المرور">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <span id="loginText">تسجيل الدخول</span>
+                    <span id="loginLoading" class="loading hidden"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Survey Modal -->
+    <div id="surveyModal" class="modal">
+        <div class="modal-content survey-modal">
+            <span class="close" onclick="closeModal('surveyModal')">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 2rem;">استبيان التقديم</h2>
+            
+            <form id="surveyForm" onsubmit="handleSurvey(event)">
+                <div class="question-group">
+                    <div class="question-title">1. ما هو عمرك؟</div>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <span>أقل من 16 سنة</span>
+                            <input type="radio" name="age" value="under16" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>16-20 سنة</span>
+                            <input type="radio" name="age" value="16-20" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>21-25 سنة</span>
+                            <input type="radio" name="age" value="21-25" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>أكبر من 25 سنة</span>
+                            <input type="radio" name="age" value="over25" required>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-title">2. كم ساعة تقضي في الألعاب يومياً؟</div>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <span>أقل من ساعة</span>
+                            <input type="radio" name="gaming_hours" value="less1" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>1-3 ساعات</span>
+                            <input type="radio" name="gaming_hours" value="1-3" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>4-6 ساعات</span>
+                            <input type="radio" name="gaming_hours" value="4-6" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>أكثر من 6 ساعات</span>
+                            <input type="radio" name="gaming_hours" value="more6" required>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-title">3. ما هي ألعابك المفضلة؟ (يمكن اختيار أكثر من إجابة)</div>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <span>ألعاب الأكشن</span>
+                            <input type="checkbox" name="games" value="action">
+                        </label>
+                        <label class="radio-option">
+                            <span>ألعاب الاستراتيجية</span>
+                            <input type="checkbox" name="games" value="strategy">
+                        </label>
+                        <label class="radio-option">
+                            <span>ألعاب الرياضة</span>
+                            <input type="checkbox" name="games" value="sports">
+                        </label>
+                        <label class="radio-option">
+                            <span>ألعاب المحاكاة</span>
+                            <input type="checkbox" name="games" value="simulation">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-title">4. هل لديك خبرة في إدارة مجتمعات Discord؟</div>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <span>نعم، خبرة كبيرة</span>
+                            <input type="radio" name="discord_experience" value="expert" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>نعم، خبرة متوسطة</span>
+                            <input type="radio" name="discord_experience" value="medium" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>خبرة قليلة</span>
+                            <input type="radio" name="discord_experience" value="beginner" required>
+                        </label>
+                        <label class="radio-option">
+                            <span>لا، لا يوجد خبرة</span>
+                            <input type="radio" name="discord_experience" value="none" required>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>5. لماذا تريد الانضمام إلى The West CFW؟</label>
+                    <textarea rows="4" name="reason" required placeholder="اشرح أسبابك للانضمام..."></textarea>
+                </div>
+
+                <button type="submit" class="btn
