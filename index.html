@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixelium Host - الرئيسية</title>
+<style>
+/* ---------- تصميم كامل داخل الصفحة ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+:root{
+  --primary:#e02424;
+  --bg:#0b0b0c;
+  --card-bg: rgba(0,0,0,0.6);
+  --glass: rgba(255,255,255,0.05);
+  --transition:.3s;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+body{
+  background-image:url('https://cdn.discordapp.com/attachments/1325234229776351284/1407743739497152715/edf5a7ffa63adecd.jpg?ex=68a73706&is=68a5e586&hm=098709b60e0af8b98024161d50b5fd4375c82878ba652d723464d32ae5118015&');
+  background-size:cover;
+  background-attachment:fixed;
+  color:#fff;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  background:linear-gradient(180deg,rgba(0,0,0,0.5),rgba(0,0,0,0.8));
+  backdrop-filter:blur(6px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.brand img{width:60px;border-radius:10px;}
+.brand h1{font-size:28px;color:#fff;}
+
+nav a{
+  margin:0 8px;
+  text-decoration:none;
+  color:#fff;
+  padding:8px 15px;
+  border-radius:8px;
+  transition: all var(--transition);
+}
+nav a:hover{background:var(--glass);color:var(--primary);}
+
+.menu-btn{
+  display:none;
+  cursor:pointer;
+  font-size:28px;
+  color:#fff;
+}
+
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:60px 30px;
+  gap:30px;
+}
+.hero-content h2{
+  font-size:42px;
+  margin-bottom:15px;
+  text-shadow: 2px 2px 5px #000;
+}
+.hero-content p{
+  font-size:20px;
+  margin-bottom:20px;
+}
+.btn{
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:10px;
+  background:var(--glass);
+  color:#fff;
+  margin-right:10px;
+  display:inline-block;
+  transition:all var(--transition);
+}
+.btn:hover{
+  background:var(--primary);
+  transform:translateY(-3px);
+  box-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+.hero-image img{
+  width:500px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.7);
+}
+
+.highlights{
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+}
+.hl{
+  background:var(--card-bg);
+  padding:15px;
+  border-radius:12px;
+  flex:1;
+  transition:all var(--transition);
+}
+.hl:hover{
+  transform:translateY(-5px);
+  box-shadow:0 6px 15px rgba(0,0,0,0.5);
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  opacity:0.8;
+  background:rgba(0,0,0,0.5);
+}
+
+@media(max-width:900px){
+  .hero{flex-direction:column;}
+  .hero-image img{width:100%;}
+  .menu-btn{display:block;}
+  nav{display:none;flex-direction:column;position:absolute;top:70px;right:20px;background:var(--card-bg);padding:15px;border-radius:10px;}
+  nav.open{display:flex;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="https://cdn.discordapp.com/attachments/1325234229776351284/1407743739061076058/13dd5b6720a546c9.jpg?ex=68a73706&is=68a5e586&hm=d16c3111cf231dc934de3b8026070f310805ef0c4c32b0da55122be6ddf7cc2a&" alt="Logo">
+    <h1>Pixelium Host</h1>
+  </div>
+  <nav id="mainNav">
+    <a href="index.html">الرئيسية</a>
+    <a href="programming.html">البرمجة</a>
+    <a href="hosting.html">الهوستات</a>
+    <a href="discord.html">الديسكورد</a>
+    <a href="contact.html">تواصل</a>
+  </nav>
+  <div class="menu-btn" id="menuBtn">☰</div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>مرحبًا بك في Pixelium Host</h2>
+    <p>أفضل جودة في المنتجات والهوستات والبرمجيات — حلول احترافية لسيرفرك.</p>
+    <a href="programming.html" class="btn">قائمة البرمجة</a>
+    <a href="hosting.html" class="btn">باقات الهوستات</a>
+
+    <div class="highlights">
+      <div class="hl">
+        <h4>اختيار الجودة</h4>
+        <p>نوصي بخيارات RH-High للحصول على أفضل أداء ومرونة في التخصيص.</p>
+      </div>
+      <div class="hl">
+        <h4>دعم سريع</h4>
+        <p>دعم فني على مدار الساعة، واستجابة سريعة عبر تكت/ديسكورد.</p>
+      </div>
+      <div class="hl">
+        <h4>ضمان الجودة</h4>
+        <p>جودة مضمونة مع إمكانية استرجاع أو تعديل الخدمة عند الحاجة.</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://cdn.discordapp.com/attachments/1325234229776351284/1407743738591186954/97c1f8965d97d957.jpg?ex=68a73705&is=68a5e585&hm=ffccb7af45e5d5730b2aa18c0f47b9e655ef7a6143961370f02e7e892da5ae08&" alt="Hero">
+  </div>
+</section>
+
+<footer>
+  © Pixelium Host — تواصل معنا عبر <a href="contact.html">صفحة التواصل</a>
+</footer>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click', ()=>{
+  document.getElementById('mainNav').classList.toggle('open');
+});
+</script>
+
+</body>
+</html>

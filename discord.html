@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixelium Host - Discord Projects</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+:root{
+  --primary:#e02424;
+  --bg:#0b0b0c;
+  --card-bg: rgba(0,0,0,0.6);
+  --glass: rgba(255,255,255,0.05);
+  --transition:.3s;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+body{
+  background-image:url('https://cdn.discordapp.com/attachments/1325234229776351284/1407743739497152715/edf5a7ffa63adecd.jpg');
+  background-size:cover;
+  background-attachment:fixed;
+  color:#fff;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  background:linear-gradient(180deg,rgba(0,0,0,0.5),rgba(0,0,0,0.8));
+  backdrop-filter:blur(6px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.brand img{width:50px;border-radius:10px;}
+.brand h1{font-size:24px;color:#fff;}
+
+nav a{
+  margin:0 8px;
+  text-decoration:none;
+  color:#fff;
+  padding:8px 15px;
+  border-radius:8px;
+  transition: all var(--transition);
+}
+nav a:hover{background:var(--glass);color:var(--primary);}
+.menu-btn{display:none;cursor:pointer;font-size:28px;color:#fff;}
+
+main{max-width:1100px;margin:30px auto;padding:0 16px;}
+h2{margin-bottom:15px;}
+.muted{opacity:0.8;margin-bottom:20px;}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.card{
+  background:var(--card-bg);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  transition:all var(--transition);
+}
+.card:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:12px;}
+
+.btn{
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:10px;
+  background:var(--glass);
+  color:#fff;
+  display:inline-block;
+  margin-top:12px;
+  transition:all var(--transition);
+}
+.btn:hover{
+  background:var(--primary);
+  transform:translateY(-3px);
+  box-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+
+@media(max-width:900px){
+  nav{display:none;flex-direction:column;position:absolute;top:70px;right:20px;background:var(--card-bg);padding:15px;border-radius:10px;}
+  nav.open{display:flex;}
+  .menu-btn{display:block;}
+  .btn{width:100%;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="https://cdn.discordapp.com/attachments/1325234229776351284/1407743739061076058/13dd5b6720a546c9.jpg" alt="Logo">
+    <h1>Pixelium Host</h1>
+  </div>
+  <nav id="mainNav">
+    <a href="index.html">الرئيسية</a>
+    <a href="programming.html">البرمجة</a>
+    <a href="hosting.html">الهوستات</a>
+    <a href="discord.html">الديسكورد</a>
+    <a href="contact.html">تواصل</a>
+  </nav>
+  <div class="menu-btn" id="menuBtn">☰</div>
+</header>
+
+<main>
+  <h2>مشاريع وبوتات Discord</h2>
+  <p class="muted">قائمة كاملة لجميع مشاريع Discord المتاحة — اختر ما تريد تجربته أو طلبه.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Bot 1">
+      <h3>بوت التذاكر</h3>
+      <p>بوت لإدارة التذاكر داخل سيرفر Discord مع تخصيص كامل للأدوار والقنوات.</p>
+      <a href="contact.html" class="btn">اطلب الخدمة</a>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Bot 2">
+      <h3>بوت الألعاب</h3>
+      <p>بوت يقدم أوامر للألعاب مثل حجر ورقة مقص، الاحصائيات والجوائز التلقائية.</p>
+      <a href="contact.html" class="btn">اطلب الخدمة</a>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Bot 3">
+      <h3>بوت الترحيب</h3>
+      <p>بوت يقوم بالترحيب بالأعضاء الجدد وتخصيص رسائل خاصة لكل دور.</p>
+      <a href="contact.html" class="btn">اطلب الخدمة</a>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Bot 4">
+      <h3>بوت الإعلانات</h3>
+      <p>بوت لإرسال الإعلانات والمحتوى المهم تلقائيًا داخل القنوات المحددة.</p>
+      <a href="contact.html" class="btn">اطلب الخدمة</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Pixelium Host. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click', ()=>{
+  document.getElementById('mainNav').classList.toggle('open');
+});
+</script>
+
+</body>
+</html>

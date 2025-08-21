@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixelium Host - الهوستات</title>
+<style>
+:root{
+  --primary:#e02424;
+  --bg:#0b0b0c; /* خلفية سوداء */
+  --glass: rgba(255,255,255,0.04);
+  --text-light:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Cairo',sans-serif;}
+body{
+  background-color: var(--bg); /* الخلفية السوداء */
+  color: var(--text-light);
+}
+header{
+  display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.6));backdrop-filter:blur(6px);position: relative;
+}
+header .brand{display:flex;align-items:center;gap:12px;}
+header .brand img{width:56px;height:56px;border-radius:8px;object-fit:cover;}
+nav{display:flex;gap:12px;}
+nav a{
+  color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px;transition:0.2s;
+}
+nav a:hover{background:var(--glass);color:var(--primary);}
+.menu-btn{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+main{max-width:1200px;margin:28px auto;padding:0 16px;}
+h2{margin-bottom:20px;font-size:32px;text-align:center;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
+.card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:12px;}
+.btn{
+  display:inline-block;margin-top:12px;padding:12px 28px;background:var(--primary);color:#fff;border-radius:10px;text-decoration:none;font-weight:bold;transition:0.3s;
+}
+.btn:hover{background:#ff4d4d;transform:scale(1.05);}
+footer{text-align:center;padding:16px;background:rgba(0,0,0,0.3);margin-top:20px;}
+@media(max-width:900px){
+  nav{display:none;flex-direction:column;position:absolute;top:64px;right:0;background:rgba(0,0,0,0.85);padding:12px;border-radius:8px;width:200px;}
+  nav.open{display:flex;}
+  .menu-btn{display:block;}
+  .card-grid{grid-template-columns:1fr;}
+  .btn{width:100%;text-align:center;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <img src="https://cdn.discordapp.com/attachments/1325234229776351284/1407743739061076058/13dd5b6720a546c9.jpg" alt="Pixelium Host Logo">
+    <h1>Pixelium Host</h1>
+  </div>
+  <nav id="mainNav">
+    <a href="index.html">الرئيسية</a>
+    <a href="programming.html">البرمجة</a>
+    <a href="hosting.html">الهوستات</a>
+    <a href="discord.html">الديسكورد</a>
+    <a href="contact.html">تواصل</a>
+  </nav>
+  <div class="menu-btn" id="menuBtn">☰</div>
+</header>
+
+<main>
+<h2>باقات الهوستات وخوادم الألعاب</h2>
+<div class="card-grid">
+  <div class="card">
+    <img src="https://cdn.discordapp.com/attachments/1325234229776351284/1407743738591186954/97c1f8965d97d957.jpg" alt="Minecraft Host">
+    <h3>Minecraft</h3>
+    <p>باقات تبدأ من 1GB RAM حتى 8GB + دعم إدارة السيرفر.</p>
+    <a href="contact.html" class="btn">اطلب باقة</a>
+  </div>
+  <div class="card">
+    <img src="https://cdn.discordapp.com/attachments/1325234229776351284/1407743738591186954/97c1f8965d97d957.jpg" alt="FiveM Host">
+    <h3>FiveM</h3>
+    <p>هوستات محسّنة مع موارد عالية وتخزين SSD للأداء الأفضل.</p>
+    <a href="contact.html" class="btn">اطلب باقة</a>
+  </div>
+  <div class="card">
+    <img src="https://cdn.discordapp.com/attachments/1325234229776351284/1407743738591186954/97c1f8965d97d957.jpg" alt="MTA Host">
+    <h3>MTA:SA</h3>
+    <p>خيارات خفيفة ومتجاوبة للألعاب الجماعية.</p>
+    <a href="contact.html" class="btn">اطلب باقة</a>
+  </div>
+  <div class="card">
+    <img src="https://cdn.discordapp.com/attachments/1325234229776351284/1407743738591186954/97c1f8965d97d957.jpg" alt="SA-MP Host">
+    <h3>SA-MP</h3>
+    <p>باقة كاملة مع RakNet وملفات السيرفر جاهزة.</p>
+    <a href="contact.html" class="btn">اطلب باقة</a>
+  </div>
+</div>
+</main>
+
+<footer>
+<p>&copy; 2025 Pixelium Host. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const mainNav = document.getElementById('mainNav');
+menuBtn.addEventListener('click', ()=>{mainNav.classList.toggle('open');});
+</script>
+</body>
+</html>
